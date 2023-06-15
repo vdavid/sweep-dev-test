@@ -22,18 +22,6 @@ function isValid(puzzle: SudokuPuzzle, row: number, col: number, num: number): b
   return true;
 }
 
-function findEmptyCell(puzzle: SudokuPuzzle): [number, number] | null {
-  for (let i = 0; i < 9; i++) {
-    for (let j = 0; j < 9; j++) {
-      if (puzzle[i][j] === null) {
-        return [i, j];
-      }
-    }
-  }
-
-  return null;
-}
-
 function generateSudoku(difficulty: number): SudokuPuzzle {
   const puzzle: SudokuPuzzle = Array(9).fill(null).map(() => Array(9).fill(null));
 
