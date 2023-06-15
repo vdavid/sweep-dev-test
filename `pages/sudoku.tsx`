@@ -1,0 +1,31 @@
+import React, { useState } from 'react';
+import generateSudoku, { SudokuPuzzle } from '../src/sudokuGenerator';
+import SudokuCell from '../components/SudokuCell';
+
+const SudokuPage: React.FC = () => {
+  const [puzzle, setPuzzle] = useState<SudokuPuzzle>(Array(9).fill(null).map(() => Array(9).fill(null)));
+
+  const handleGenerate = () => {
+    const newPuzzle = generateSudoku(1);
+    setPuzzle(newPuzzle);
+  };
+
+  return (
+    <div>
+      <button onClick={handleGenerate}>Generate</button>
+      <div>
+        {puzzle.map((row, i) => (
+          <div key={i}>
+            {row.map((num, j) => (
+              <SudokuCell key={j} num={num} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default SudokuPage;
+```
+
