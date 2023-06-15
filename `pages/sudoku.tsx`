@@ -1,0 +1,29 @@
+import React, { useState } from 'react';
+import generateSudoku from '../src/sudokuGenerator';
+
+const SudokuPage: React.FC = () => {
+  const [puzzle, setPuzzle] = useState(generateSudoku(1));
+
+  const generateNewPuzzle = () => {
+    setPuzzle(generateSudoku(1));
+  };
+
+  return (
+    <div>
+      <button onClick={generateNewPuzzle}>Generate</button>
+      <div className="grid grid-cols-9 gap-2">
+        {puzzle.map((row, i) =>
+          row.map((cell, j) => (
+            <div key={`${i}-${j}`} className="border border-gray-200 p-2">
+              {cell || ''}
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default SudokuPage;
+```
+
