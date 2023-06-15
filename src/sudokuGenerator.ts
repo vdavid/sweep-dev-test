@@ -1,3 +1,4 @@
+export type SudokuPuzzle = (number | null)[][];
 type SudokuPuzzle = (number | null)[][];
 
 function isValid(puzzle: SudokuPuzzle, row: number, col: number, num: number): boolean {
@@ -46,4 +47,3 @@ function generateSudoku(difficulty: number): SudokuPuzzle {
 
 export default generateSudoku;
 ```
-
